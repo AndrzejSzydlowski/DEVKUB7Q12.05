@@ -3,7 +3,7 @@
 ## Задание 1: установить в кластер CNI плагин Calico
 
 
-### DenyPolicy
+### DenyPolicy.yml
 ```
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
