@@ -1,6 +1,9 @@
-# DEVKUB7Q12.05
+# Домашнее задание к занятию "12.5 Сетевые решения CNI"
 
-DenyPolicy
+## Задание 1: установить в кластер CNI плагин Calico
+
+
+### DenyPolicy
 ```
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
@@ -12,7 +15,7 @@ spec:
     - Ingress
 ```
 
-NWPolicy.yml
+### NWPolicy.yml
 
 ```
 kind: NetworkPolicy
@@ -32,6 +35,7 @@ spec:
   - Ingress
 ```
 
+### Проверка доступности hello-node
 ```
 rimm@cp1:~$ kubectl apply -f NWPolicy.yml
 networkpolicy.networking.k8s.io/testcurl created
@@ -55,19 +59,23 @@ user-agent=curl/7.79.1
 BODY:
 ```
 
+
+## Задание 2: изучить, что запущено по умолчанию
+
+### Вывод calicoctl get node
 ```
 rimm@cp1:~$ calicoctl get node
 NAME
 cp1
 node1
 ```
-
+### Вывод calicoctl get ippool
 ```
 rimm@cp1:~$ calicoctl get ippool
 NAME           CIDR             SELECTOR
 default-pool   10.233.64.0/18   all()
 ```
-
+### Вывод calicoctl get profile
 ```
 rimm@cp1:~$ calicoctl get profile
 NAME
